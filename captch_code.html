@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="abc.css">   
+
+     <title>Login</title>
+     <style>
+       body{
+        font-family: 'Arial', sans-serif;
+        background: url("background.jpg") no-repeat;
+        background-size: 100%; 
+    }
+    .capt{
+      user-select: none;
+  }
+  
+  
+     </style>
+</head>
+<body onload="cap()">
+  <form name="myform" onsubmit="return validateform()">
+    <div class="login-form">
+        <div class="form-title">
+            Admin Login 
+        </div>
+        <div class="form-input">
+            <label for="Email">Email</label>
+            <input type="text"  id="Email" name="email">
+        </div>
+        <div class="form-input">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+    <div class="captcha">
+        <label for="cap">Enter Captcha:</label>
+        <div class="form-input">
+          <div class="preview">
+            <input type="text" class="form-control" id="capt" readonly>
+          </div>
+          <div class="input">
+            <input type="text" class="preview-span" id="textinput" placeholder="Enter captcha here">
+          </div>
+        </div>
+    </div>
+            <div>
+                <button class="captcha-refresh">
+                    <i style="font-size: 24px" class="fa fa-refresh" onclick="cap()"></i>
+                </button>
+            </div>
+            <h4>Refresh the code ..If its not Visible!</h4>
+        <div class="form-in">
+          
+        <button class="login-btn" onclick="validateform()" name="mybutton">Login</button>
+        </div>
+    </div>
+  </form>
+
+    <script type="text/javascript">
+  function cap(){
+    var alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V'
+                 ,'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i',
+                 'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', '!','@','#','$','%','^','&','*','+'];
+                 var a = alpha[Math.floor(Math.random()*71)];
+                 var b = alpha[Math.floor(Math.random()*71)];
+                 var c = alpha[Math.floor(Math.random()*71)];
+                 var d = alpha[Math.floor(Math.random()*71)];
+                 var e = alpha[Math.floor(Math.random()*71)];
+                 var f = alpha[Math.floor(Math.random()*71)];
+
+                 var final = a+b+c+d+e+f;
+                 document.getElementById("capt").value=final;
+               }
+      function link()
+      {
+        window.location = "test.html";
+      }   
+
+      function validateform()
+      {  
+			var name=document.myform.email.value;  
+			var password=document.myform.password.value;  
+				
+			if (name==null || name==""){  a
+				alert("Name can't be blank");  
+				return false;  
+			}
+      else if(name == "abc@gmail.com" && password==12345){  
+        alert("Form is validated succesfully."); 
+        
+        location.replace("http://localhost/elites/showform.php");
+				 
+        
+        // document.getElementById("mybutton").onclick = link () 
+        
+				// return true;
+				}   
+        else if(password==null || password=="")
+      { alert("Password can't be blank");  
+				return false; 
+      }
+			} 
+</script>
+
+</body>
+</html>
